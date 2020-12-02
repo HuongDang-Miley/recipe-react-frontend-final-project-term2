@@ -1,65 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+
 #recipe-div {
   display: grid;
   width: 70%;
-  height: 1004px;
+  height: 1204px;
   margin: 104px auto;
-  grid-template-areas: "video video info" "ingr ingr ingr" "inst inst inst";
+  grid-template-areas: "hdr" "ing" "ins";
   font-size: 1em;
-  background-color: aquamarine;
+  line-height: 24px;
+  /* background-color: aquamarine; */
 }
 
-#video-hero {
-  background-color: bisque;
+#header {
+  /* background-color: red; */
+  grid-area: hdr;
   display: grid;
-  grid-area: video;
+}
+
+#video-info-wrapper {
+  display: grid;
+  grid-template-areas: "vid vid inf"
 }
 
 #info {
-  background-color: palegreen;
+  /* background-color: palegreen; */
   display: grid;
-  grid-area: info;
+  grid-area: inf;
+  height: 376px;
+  align-self:flex-start;
+  padding-right: 16px;
 }
 
 #ingredients {
-  background-color: aqua;
+  /* background-color: aqua; */
   display: grid;
-  grid-area: ingr;
+  grid-area: ing;
 }
 
 #instruction {
-  background-color: gray;
+  /* background-color: gray; */
   display: grid;
-  grid-area: inst;
+  grid-area: ins;
 }
 
+a {
+  color:rgb(0, 145, 255)
+}
 iframe {
-  width: 100%;
-  /* height: 376px; */
+  width: 670px;
+  height: 376px;
   align-self: start;
+  display: grid;
+  grid-area: vid;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 40px;
+  box-sizing: border-box;
 }
 
 h2 {
-font-size: 1.5em;
-line-height: 32px;
-padding: 0px;
-margin: 0px;
-}
-/* .recipe-div {
-  width: 60%;
-  margin: 40px auto;
+  font-size: 1.5em;
+  line-height: 32px;
+  /* padding: 0px;
+  margin: 0px; */
 }
 
-.info-ul {
-  margin-left: 32px;
-  display: inline-block;
-}
-/* * */
 li {
-  list-style: none;
   margin-bottom: 8px;
-} 
+}
+
+.info-list {
+  list-style: none;
+  margin-bottom: 0px;
+}
 
 .add-to-favorites-button {
+  width: 179px;
   height: 56px;
   padding: 16px;
   border-style: none;
@@ -68,7 +88,7 @@ li {
   border: solid solid red;
   border-radius: 4px;
   box-shadow: 0px 0px 2px rgba(141, 141, 148, 0.16), 0px 4px 8px -2px rgba(141, 141, 148, 0.28);
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
 }
 
 .ingredient-and-instruction-wrapper {
@@ -81,5 +101,5 @@ li {
 .instruction-paragraph {
   width: 70%;
   margin: 24px auto;
-  background-color: indianred;
+  /* background-color: indianred; */
 }
