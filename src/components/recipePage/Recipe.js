@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './recipe.css'
+import RecipeNav from './RecipeNav'
 
 export default class Recipe extends Component {
   state = {
@@ -65,6 +66,8 @@ export default class Recipe extends Component {
 
     const { id, area, category, ingredients, instructions, name, img, tags, video, source } = this.state
     return (
+      <>
+      <RecipeNav />
       <div id="recipe-div">
         <div id='header'>
           <h1>{name}</h1>
@@ -106,6 +109,7 @@ export default class Recipe extends Component {
           </div>
         </div>
       </div>
+      </>
     )
   }
 }
