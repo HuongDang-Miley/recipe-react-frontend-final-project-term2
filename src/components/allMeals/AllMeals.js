@@ -18,14 +18,12 @@ export default class AllMeals extends Component {
         this.setState({
             meals: latestMeals.data.meals
         })
-        // console.log(latestMeals.data.meals)
         this.state.meals.map(item => console.log(item))
     }
 
     render() {
         const { meals } = this.state
         console.log(this.state)
-        console.log(meals.length)
         return (
             <div id='all-meals-wrapper'>
                 {meals.length !== 0
