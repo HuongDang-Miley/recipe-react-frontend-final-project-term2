@@ -17,7 +17,7 @@ export default class App extends Component {
       <Router >
         <Route  path='/' component ={Nav}/>
         <Switch>
-        <Route  path='/home' component ={AllMeals}/>
+        <Route  path='/all' component ={AllMeals}/>
         <Route  path='/recipe' component ={Recipe}/>
         </Switch>
 

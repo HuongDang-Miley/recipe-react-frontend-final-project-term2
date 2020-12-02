@@ -5,8 +5,8 @@
   #recipe-div {
     display: grid;
     width: 70%;
-    height: 1204px;
-    margin: 104px auto;
+    /* height: 2000px; */
+    margin: 64px auto;
     grid-template-areas: "hdr" "ing" "ins";
     font-size: 1em;
     line-height: 24px;
@@ -19,6 +19,16 @@
     display: grid;
   }
   
+  #footer {
+    background-color: #272729;
+    color: #BABBC2;
+    width: 100%;
+    text-align: center;
+    margin-top: 24px;
+    padding: 16px;
+    font-size: 0.875em;
+    line-height: 24px;
+  }
   #video-info-wrapper {
     display: grid;
     grid-template-areas: "vid vid inf"
@@ -87,15 +97,14 @@
     border-color: white;
     border: solid solid red;
     border-radius: 4px;
-    box-shadow: 0px 0px 2px rgba(141, 141, 148, 0.16), 0px 4px 8px -2px rgba(141, 141, 148, 0.28);
-    /* margin-bottom: 16px; */
+    box-shadow: 0px 0px 2px rgba(141, 141, 148, 0.3), 0px 4px 8px -2px rgba(141, 141, 148, 0.28);
   }
   
   .ingredient-and-instruction-wrapper {
     width: 100%;
     border: black;
     background-color: white;
-    box-shadow: 0px 0px 2px rgba(141, 141, 148, 0.16), 0px 4px 8px -2px rgba(141, 141, 148, 0.28);
+    box-shadow: 0px 0px 2px rgba(141, 141, 148, 0.3), 0px 2px 8px -2px rgba(141, 141, 148, 0.28);
   }
   
   .instruction-paragraph {
@@ -103,3 +112,4 @@
     margin: 24px auto;
     /* background-color: indianred; */
   }
+

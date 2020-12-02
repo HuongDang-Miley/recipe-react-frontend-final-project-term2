@@ -67,48 +67,54 @@ export default class Recipe extends Component {
     const { id, area, category, ingredients, instructions, name, img, tags, video, source } = this.state
     return (
       <>
-      <RecipeNav />
-      <div id="recipe-div">
-        <div id='header'>
-          <h1>{name}</h1>
-          <div id='video-info-wrapper'>
-            <iframe
+        <RecipeNav />
+        <div>
+          <div id="recipe-div">
+            <div id='header'>
+              <h1>{name}</h1>
+              <div id='video-info-wrapper'>
+                <iframe
 
-              src="https://www.youtube.com/embed/WUpaOGghOdo"
-              frameborder="0"
-              poster={img}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-            <ul id="info">
-              <button className="add-to-favorites-button">Add To Favorites</button>
-              <li className="info-list">Tags: {tags}</li>
-              <li className="info-list">Country: {area}</li>
-              <li className="info-list">Catergory: {category}</li>
-              <li className="info-list">Source: <a href={source}>Link</a>
-              </li>
-            </ul>
+                  src="https://www.youtube.com/embed/WUpaOGghOdo"
+                  frameborder="0"
+                  poster={img}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+                <ul id="info">
+                  <button className="add-to-favorites-button">Add To Favorites</button>
+                  <li className="info-list">Tags: {tags}</li>
+                  <li className="info-list">Country: {area}</li>
+                  <li className="info-list">Catergory: {category}</li>
+                  <li className="info-list">Source: <a href={source}>Link</a>
+                  </li>
+                </ul>
 
+              </div>
+
+
+            </div>
+            <div id='ingredients'>
+              <h2>Ingredients</h2>
+              <div className='ingredient-and-instruction-wrapper'>
+                <p className='instruction-paragraph'>
+                  {ingredients.length !== 0
+                    ? (ingredients.map(item => { if (item !== '' && item !== null) { return (<li>{item}</li>) } }))
+                    : ""}
+                </p>
+              </div>
+            </div>
+            <div id='instruction'>
+              <h2>Instruction</h2>
+              <div className='ingredient-and-instruction-wrapper'>
+                <p className='instruction-paragraph'>{instructions}</p>
+              </div>
+            </div>
           </div>
-
-
-        </div>
-        <div id='ingredients'>
-          <h2>Ingredients</h2>
-          <div className='ingredient-and-instruction-wrapper'>
-            <p className='instruction-paragraph'>
-              {ingredients.length !== 0
-                ? (ingredients.map(item => { if (item !== '' && item !== null) { return (<li>{item}</li>) } }))
-                : ""}
-            </p>
+          <div id='footer'>
+            © 2020 Code Immersives - Final Project Term2 By Miley <br />
+            All rights reserved.
           </div>
         </div>
-        <div id='instruction'>
-          <h2>Instruction</h2>
-          <div className='ingredient-and-instruction-wrapper'>
-            <p className='instruction-paragraph'>{instructions}</p>
-          </div>
-        </div>
-      </div>
       </>
     )
   }
