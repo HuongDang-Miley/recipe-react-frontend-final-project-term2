@@ -34,3 +34,7 @@ a {
 .back-link {
     color: white
 }
+
+.active {
+    color: red
+}

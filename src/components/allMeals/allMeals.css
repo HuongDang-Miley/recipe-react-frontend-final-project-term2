@@ -2,8 +2,8 @@
     box-sizing: border-box;
 }
 #all-meals-wrapper {
-    margin: 56px auto;
-    background-color: pink;
+    margin: 24px auto;
+    /* background-color: pink; */
     width: 70%;
     display: grid;
     grid-template-areas: 
@@ -13,18 +13,37 @@
 }
 
 #meal-module-wrapper {
-    background-color: plum;
-    width: 235px;
+    /* background-color: plum; */
+    width: 220px;
+    margin-top: 16px;
+    height: 350px;
+}
+
+
+.name-and-img-wrapper{
+    height: 292px;
+    padding: 0;
+    margin: 0;
+    background-color: purple;
+}
+
+.name-and-img-wrapper:hover {
+    box-shadow: 0px 2px 6px rgba(141, 141, 148, 0.5), 0px 16px 8px -8px rgba(141, 141, 148, 0.5);
+
 }
 
 .meal-module-image {
-    width: 235px;
+    width: 220px;
+    height: 220px;
+    margin: 0;
 }
 
 .meal-module-name {
-    background-color: black;
+    height: 72px;
+    background-color: rgb(39, 39, 41);
     color:rgb(240, 240, 245);
     font-size: 14px;
+    line-height: 20px;
     padding: 16px;
     font-weight: 600;
 }
@@ -43,12 +62,15 @@ li {
     display: grid;
     grid-area: 1fr;
     justify-self: center;
-    /* margin-right: 1%; */
 }
 
 .add-to-favorite {
+    width: 100%;
     font-size: 14px;
+    line-height: 20px;
     color: rgb(39, 39, 41);
-    justify-self: end;
+    display: grid;
+    margin: 4px 0 8px 0;
+    text-align: right;
     font-weight: 400;
 }

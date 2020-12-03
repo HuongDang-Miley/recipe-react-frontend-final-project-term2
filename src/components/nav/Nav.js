@@ -8,10 +8,10 @@ export default class Nav extends Component {
         return (
             <div id='shared-nav' className='white-nav'>
                 <span className='first-link'>
-                    <Link to='/all'>All Recipes</Link>
+                    <Link to='/all' activeStyle={{backgroundColor: 'red'}} activeClassName={"active"}>All Recipes</Link>
                 </span>
                 <span>
-                    <Link to='/favorites'>Favorites</Link>
+                    <Link activeStyle={{backgroundColor: 'red'}} to='/favorites'>Favorites</Link>
                 </span>
             </div>
         )
