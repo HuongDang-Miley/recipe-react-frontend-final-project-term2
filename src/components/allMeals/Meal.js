@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Recipe from '../recipePage/Recipe'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom'
 
 export default class Meal extends Component {
 
@@ -14,18 +13,16 @@ export default class Meal extends Component {
     render() {
         const { id, category, name, img } = this.props
         return (
-            <div id='meal-module-wrapper'
-                onClick={() => this.handleOnClickMealModule(id)}>
-                    <Link to='/recipe'></Link>
-                <p className='meal-module-category'>{category.toUpperCase()}</p>
-                <div className='name-and-img-wrapper'>
-                    <div className='meal-module-name'>
-                        {name}
+                <div id='meal-module-wrapper'>
+                    <p className='meal-module-category'>{category.toUpperCase()}</p>
+                    <div className='name-and-img-wrapper'>
+                        <div className='meal-module-name'>
+                            {name}
+                        </div>
+                        <img className='meal-module-image' src={img} />
                     </div>
-                    <img className='meal-module-image' src={img} />
+                    <p class='add-to-favorite'>Favorite</p>
                 </div>
-                <p class='add-to-favorite'>Favorite</p>
-            </div>
         )
     }
 }

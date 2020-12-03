@@ -11,8 +11,10 @@ export default class Recipe extends Component {
   }
 
   componentDidMount = async () => {
+    let recipeId = this.props.location.state.id
     try {
-      let result = await axios.get('https://www.themealdb.com/api/json/v1/1/random.php',
+      let result = await axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`,
+      // let result = await axios.get('https://www.themealdb.com/api/json/v1/1/random.php',
         {
           headers: { Accept: "application/json, text/plain, */*" }
         }
@@ -63,7 +65,7 @@ export default class Recipe extends Component {
   }
 
   render() {
-
+console.log('this is from line 66', this.props.location)
     const { id, area, category, ingredients, instructions, name, img, tags, video, source } = this.state
     return (
       <>
@@ -85,7 +87,7 @@ export default class Recipe extends Component {
                   <li className="info-list">Tags: {tags}</li>
                   <li className="info-list">Country: {area}</li>
                   <li className="info-list">Catergory: {category}</li>
-                  <li className="info-list">Source: <a href={source}>Link</a>
+                  <li className="info-list">Source: <a className= 'recipe-link' href={source}>Link</a>
                   </li>
                 </ul>
 

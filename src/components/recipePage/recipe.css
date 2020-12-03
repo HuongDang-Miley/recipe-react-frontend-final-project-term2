@@ -86,6 +86,12 @@
   .info-list {
     list-style: none;
     margin-bottom: 0px;
+    text-align: left;
+justify-self: start;
+  }
+
+  .recipe-link {
+    
   }
   
   .add-to-favorites-button {

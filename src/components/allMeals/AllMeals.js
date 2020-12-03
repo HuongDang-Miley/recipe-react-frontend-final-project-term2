@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Meal from './Meal'
 import './allMeals.css'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 export default class AllMeals extends Component {
     state = {
@@ -34,7 +34,15 @@ export default class AllMeals extends Component {
                     ? (meals.map(({ idMeal, strMeal, strCategory, strMealThumb }) => (
                         <li key={idMeal}
                         >
-                            <Router>
+                            <Link to={{ pathname: '/recipe', state: { id: idMeal } }}>
+                                <Meal
+                                    id={idMeal}
+                                    name={strMeal}
+                                    category={strCategory}
+                                    img={strMealThumb}
+                                />
+                            </Link>
+                            {/* <Router>
                                 <Route
                                     component={(props) => <Meal
                                         {...props}
@@ -42,10 +50,11 @@ export default class AllMeals extends Component {
                                         name={strMeal}
                                         category={strCategory}
                                         img={strMealThumb}
+                                        // Link 
                                     />}
                                 >
                                 </Route>
-                            </Router>
+                            </Router> */}
                             {/* <Meal
                             component={(props) => <Login {...props} auth={this.auth} />}
                                 {...props}
