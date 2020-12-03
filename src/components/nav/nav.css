@@ -2,6 +2,12 @@
     box-sizing: border-box;
 }
 
+
+a {
+    text-decoration: none;
+}
+
+
 #shared-nav {
     height: 56px;
     box-shadow: 0px 0px 2px rgba(141, 141, 148, 0.16), 0px 4px 8px -2px rgba(141, 141, 148, 0.28);
@@ -35,3 +41,16 @@
     color: white
 }
 
+
+.sort-button {
+    width: 170px;
+    font-size: 14px;
+    line-height: 10px;
+    padding: 15px;
+    background-color: #6B75FF;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    left: 660px;
+}

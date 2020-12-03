@@ -32,9 +32,9 @@ export default class AllMeals extends Component {
             <div id='all-meals-wrapper' >
                 {meals.length !== 0
                     ? (meals.map(({ idMeal, strMeal, strCategory, strMealThumb }) => (
-                        <li key={idMeal}
+                        <li key={idMeal} className={'meal-module'}
                         >
-                            <Link to={{ pathname: '/recipe', state: { id: idMeal } }}>
+                            <Link className={'meal-module-link'} to={{ pathname: '/recipe', state: { id: idMeal } }}>
                                 <Meal
                                     id={idMeal}
                                     name={strMeal}

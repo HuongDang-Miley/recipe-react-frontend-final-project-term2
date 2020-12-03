@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 #all-meals-wrapper {
-    margin: 24px auto;
+    margin: 64px auto;
     /* background-color: pink; */
     width: 70%;
     display: grid;
@@ -32,6 +32,10 @@
 
 }
 
+.meal-module {
+    text-decoration: none;
+}
+
 .meal-module-image {
     width: 220px;
     height: 220px;
@@ -56,7 +60,11 @@
     font-weight: 600
 }
 
-li {
+.meal-module-link {
+    font-style: none;
+}
+
+.meal-module {
     list-style: none;
     display: inline-block;
     display: grid;
@@ -73,4 +81,8 @@ li {
     margin: 4px 0 8px 0;
     text-align: right;
     font-weight: 400;
+}
+
+a {
+    text-decoration: none;
 }

@@ -2,7 +2,7 @@ import Axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './nav.css'
-import Test from '../test/Test'
+import Sort from '../sort/Sort'
 
 export default class Nav extends Component {
     render() {
@@ -14,9 +14,8 @@ export default class Nav extends Component {
                 <span>
                     <Link className="nav-link" to='/recipe'>Favorites</Link>
                 </span>
-                <span>
-                <Test />
-
+                <span  className="sort-button">
+                    <Link className="back-link"to='/'>Sort Recipes</Link>
                 </span>
             </div>
         )
