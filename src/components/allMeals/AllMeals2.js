@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
 import '../allMeals/allMeals.css'
 import MealModule from '../allMeals/MealModule'
-export default class Fav extends Component {
+export default class AllMeals extends Component {
 
     render() {
-        let favMeals = this.props.state.meals.filter(item => item.like === true)
-        console.log('state favMeals', favMeals)
         const { meals } = this.props.state
-        console.log('meals from appjs', meals)
+        console.log('meals from allMeal2.js', meals)
         return (
-
             <div id='all-meals-wrapper-wrapper'>
                 <div id='all-meals-wrapper' >
-                    {favMeals.length !== 0
-                        ? (favMeals.map((item) => (
+                    {meals.length !== 0
+                        ? (meals.map((item) => (
                             <li key={item.idMeal} className={'meal-module'}>
                                 <MealModule meals={item} />
                             </li>)))
@@ -21,9 +18,6 @@ export default class Fav extends Component {
                     }
                 </div>
             </div>
-
-
-
         )
     }
 }

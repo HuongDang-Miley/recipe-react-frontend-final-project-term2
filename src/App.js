@@ -5,6 +5,7 @@ import Recipe from './components/recipePage/Recipe'
 import AllMeals from './components/allMeals/AllMeals.js'
 import Nav from './components/nav/Nav'
 import Fav from './components/fav/Fav.js'
+import AllMeals2 from './components/allMeals/AllMeals2.js'
 import './App.css'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -67,8 +68,9 @@ export default class App extends Component {
           <Router >
             <Route path='/' component={Nav} />
             <Switch>
-              <Route path='/all' component={AllMeals} />
+              {/* <Route path='/all' component={AllMeals} /> */}
               {/* <Route  path='/favorites' component ={Fav}/> */}
+              <Route path='/all' component={(props) => <AllMeals2 {...props} state={this.state} />} />
               <Route path='/favorites' component={(props) => <Fav {...props} state={this.state} />} />
               <Route path='/recipe' component={Recipe} />
             </Switch>
