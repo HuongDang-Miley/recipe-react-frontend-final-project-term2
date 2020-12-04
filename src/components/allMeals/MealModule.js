@@ -16,7 +16,7 @@ export default class Meal extends Component {
                 <Link className={'meal-module-link'} to={{ pathname: '/recipe', state: { id: this.props.data.meal.idMeal } }}>
                     <MealThumb {...this.props} />
                 </Link>
-                <SmallFavButton />
+                <SmallFavButton {...this.props} />
             </>
         )
 
