@@ -14,7 +14,7 @@ export default class Nav extends Component {
                     <Link className={'nav-link'} to='/all' >All Recipes</Link>
                 </span>
                 <span>
-                    <Link className="nav-link" to='/recipe'>Favorites</Link>
+                    <Link className="nav-link" to='/favorites'>Favorites</Link>
                 </span>
                 <span className="sort-button">
                     <Link className="back-link" to='/'>Sort Recipes</Link>

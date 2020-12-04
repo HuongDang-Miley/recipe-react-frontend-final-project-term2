@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Meal from './Meal'
+import Meal from './MealModule'
 import './allMeals.css'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import Sort from '../sort/Sort'
@@ -51,7 +51,7 @@ export default class AllMeals extends Component {
                 useQueryString: true
             }
         })
-        
+
         latestMeals.data.meals.map(item => {
             item.like = false
             return item
@@ -64,7 +64,7 @@ export default class AllMeals extends Component {
             item.like = false
             return item
         })
-        
+
         let combinedMeals = [...latestMeals.data.meals, ...latestMeals2.data.meals, ...latestMeals3.data.meals]
         this.setState({
             meals: combinedMeals
@@ -84,7 +84,7 @@ export default class AllMeals extends Component {
             meal.like = false
         } else {
             meal.like = true
-        }      
+        }
     }
 
     // testChangeName = (childName, childChange) => {
@@ -119,17 +119,21 @@ export default class AllMeals extends Component {
 
 
     render() {
-console.log(this.state.meals)
+        console.log(this.state.meals)
         const { meals, sort } = this.state
         return (
             <>
                 <div id='all-meals-wrapper-wrapper'>
+                    <Sort data={{
+                        state: this.state,
+                        sortMeal: this.sortMeal.bind(this)
+                    }} />
 
-                    {this.state.parentChange
+                    {/* {this.state.parentChange
                         ? (<h1>sorted Array will b here</h1>)
                         : (<h1>Parent Array</h1>)
-                    }
-                    <TestArrayFilter
+                    } */}
+                    {/* <TestArrayFilter
                         data={{
                             parentArray: this.state.parentArray,
                             parentChange: this.state.parentChange,
@@ -137,16 +141,13 @@ console.log(this.state.meals)
                         }}
                     />
 
-                    <Sort data={{
-                        state: this.state,
-                        sortMeal: this.sortMeal.bind(this)
-                    }} />
+                
                     <Search
                         data={{
                             meals: this.state.meals,
                             sortMeal: this.sortMeal.bind(this)
                         }}
-                    />
+                    /> */}
 
                     {sort ? (<p>'sort is click'</p>) : ''}
                     <div id='all-meals-wrapper' >
