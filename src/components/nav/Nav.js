@@ -2,9 +2,11 @@ import Axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './nav.css'
-import Sort from '../sort/Sort'
+
 
 export default class Nav extends Component {
+
+
     render() {
         return (
             <div id='shared-nav' className='white-nav'>
@@ -14,9 +16,10 @@ export default class Nav extends Component {
                 <span>
                     <Link className="nav-link" to='/recipe'>Favorites</Link>
                 </span>
-                <span  className="sort-button">
-                    <Link className="back-link"to='/'>Sort Recipes</Link>
+                <span className="sort-button">
+                    <Link className="back-link" to='/'>Sort Recipes</Link>
                 </span>
+
             </div>
         )
     }

@@ -213,3 +213,36 @@
 // }
 
 
+//  link router in allMeal.js
+
+{/* <Router>
+                                <Route
+                                    component={(props) => <Meal
+                                        {...props}
+                                        id={idMeal}
+                                        name={strMeal}
+                                        category={strCategory}
+                                        img={strMealThumb}
+                                        // Link 
+                                    />}
+                                >
+                                </Route>
+                            </Router> */}
+                            {/* <Meal
+                            component={(props) => <Login {...props} auth={this.auth} />}
+                                {...props}
+                                id={idMeal}
+                                name={strMeal}
+                                category={strCategory}
+                                img={strMealThumb}
+                            /> */}
+
+
+                            // tets: loop through catergories:
+                               {/* {categories.map(item => {
+                    return (
+                        <span className='category-span'>
+                            <li onClick={() => this.filterCategory(item)} key={item.id} className='category-li'>{item}</li>
+                        </span>
+                    )
+                })} */}
