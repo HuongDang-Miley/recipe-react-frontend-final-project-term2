@@ -1,183 +1,136 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import Meal from './MealModule'
-import './allMeals.css'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import '../allMeals/allMeals.css'
+import MealModule from './MealModule'
 import Sort from '../sort/Sort'
-import Test from '../test/Test'
-import TestArrayFilter from '../test/TestArrayFilter'
-import Search from '../test/Search'
-
 export default class AllMeals extends Component {
     state = {
-        favorites: [],
-        meals: [],
-        sort: false,
-        parentName: 'Huong',
-        parentChange: false,
-        childName: 'childName',
-        parentArray: [
-            { meat: 'beef', name: 'beef0 stir fir' },
-            { meat: 'chicken', name: 'chicken stir fry' },
-            { meat: 'pork', name: 'porkchop' },
-            { meat: 'beef', name: 'beef4 stir fir' },
-            { meat: 'beef', name: 'beef3stir fir' },
-            { meat: 'chicken', name: 'stewed chicken thigh ' },
-            { meat: 'beef', name: 'beef1 stir fir' },
-            { meat: 'beef', name: 'beef2 stir fir' },
-        ],
-        sortedArray: []
-
-    }
-    componentDidMount = async () => {
-        let latestMeals = await axios.get('https://themealdb.p.rapidapi.com/randomselection.php', {
-            headers: {
-                'x-rapidapi-key': '1eccb1fd0fmsh1264571b8ded970p1f1396jsn3b376a8754cf',
-                'x-rapidapi-host': 'themealdb.p.rapidapi.com',
-                useQueryString: true
-            }
-        })
-        let latestMeals2 = await axios.get('https://themealdb.p.rapidapi.com/randomselection.php', {
-            headers: {
-                'x-rapidapi-key': '1eccb1fd0fmsh1264571b8ded970p1f1396jsn3b376a8754cf',
-                'x-rapidapi-host': 'themealdb.p.rapidapi.com',
-                useQueryString: true
-            }
-        })
-        let latestMeals3 = await axios.get('https://themealdb.p.rapidapi.com/randomselection.php', {
-            headers: {
-                'x-rapidapi-key': '1eccb1fd0fmsh1264571b8ded970p1f1396jsn3b376a8754cf',
-                'x-rapidapi-host': 'themealdb.p.rapidapi.com',
-                useQueryString: true
-            }
-        })
-
-        latestMeals.data.meals.map(item => {
-            item.like = false
-            return item
-        })
-        latestMeals2.data.meals.map(item => {
-            item.like = false
-            return item
-        })
-        latestMeals3.data.meals.map(item => {
-            item.like = false
-            return item
-        })
-
-        let combinedMeals = [...latestMeals.data.meals, ...latestMeals2.data.meals, ...latestMeals3.data.meals]
-        this.setState({
-            meals: combinedMeals
-        })
+        sort: true,
+        sortedCategoryList: [],
+        sortMeals: []
     }
 
-    sortMeal = (mealsArray) => {
-        this.setState({
-            meals: mealsArray,
-            sort: true
-        })
-        console.log(mealsArray)
-    }
+    // componentDidMount = () => {
+    //     let foundMeals = []
+    //     let allMeals = this.props.state.meals
+    //     let category = this.state.sortedCategoryList
 
-    addToFavorites = (meal) => {
-        if (meal.like === true) {
-            meal.like = false
-        } else {
-            meal.like = true
-        }
-    }
-
-    // testChangeName = (childName, childChange) => {
-    //     console.log('before setState ======')
-    //     console.log('parentChange',this.state.parentChange, 'parentName', this.state.parentName )
-    //   console.log('child change', childChange, 'childName',childName)
+    //     if (category.length !== 0) {
+    //         console.log('it does run this condition')
+    //         // for (let meal of allMeals) {
+    //         //     for (let item of category) {
+    //         //         if (meal.strCategory === item) {
+    //         //             foundMeals.push(meal)
+    //         //         }
+    //         //     }
+    //         // }
+    //     }
     //     this.setState({
-    //         childName: childName,
-    //         parentChange: childChange,
-    //     }, ()=> {
-    //         console.log('parentChange',this.state.parentChange, 'parentName', this.state.parentName )
-    //         console.log('after setState ======')
-    //         console.log('child change', childChange, 'childName',childName)
-
+    //         sortMeals: foundMeals
+    //     }, () => {
+    //         console.log('sortMeals', this.state.sortMeals)
     //     })
+    //     console.log('foundMeals', foundMeals)
     // }
-    testChangeArray = (sortedArray, sortChange) => {
-        console.log('before setState ======')
-        console.log('parentChange', this.state.parentChange, 'parentName', this.state.parentName)
-        console.log('sortChange', sortChange, 'sortedArray', sortedArray)
+
+    sortMeal = (category) => {
+        // let copyArr = [...this.state.sortedCategoryList]
+        // let currentIndex = copyArr.indexOf(category)
+
+        // if (currentIndex === -1) {
+        //     copyArr.push(category)
+        // } else {
+        //     copyArr.splice(currentIndex, 1)
+        // }
+        // this.setState({
+        //     sortedCategoryList: copyArr
+        // })
+        let allMeals = this.props.state.meals
+        let copyArr = [...this.state.sortedCategoryList]
+        let currentIndex = copyArr.indexOf(category)
+        let foundMeals = [...this.state.sortMeals]
+
+        // if catgr is not in the list,  push in the list, loop through all meals and push in found meals
+        // if catgr is alreay in the list,  push out of  the list, loop through all meals and splice out of all meals
+        if (currentIndex === -1) {
+            copyArr.push(category)
+            for (let meal of allMeals) {
+                if (meal.strCategory === category) {
+                    foundMeals.unshift(meal)
+                }
+            }
+
+        } else {
+            copyArr.splice(currentIndex, 1)
+            let deleteMeals = foundMeals.filter(item => item.strCategory !== category)
+            foundMeals = deleteMeals
+        }
         this.setState({
-            sortedArray: sortedArray,
-            parentChange: sortChange,
+            sortedCategoryList: copyArr,
+            sortMeals: foundMeals
         }, () => {
-            console.log('parentChange', this.state.parentChange, 'parentArray', this.state.parentArray)
-            console.log('after setState ======')
-            console.log('sortChange', sortChange, 'sortedArray', sortedArray)
+            console.log('copyArr after set state', copyArr)
+            console.log('foundMeals after set state', foundMeals)
 
         })
+
+        // console.log('copyArr', copyArr)
+        // console.log('sortMeal in AllMeals', this.state.sortedCategoryList)
     }
 
 
 
     render() {
-        console.log(this.state.meals)
-        const { meals, sort } = this.state
+        const { sortMeals } = this.state
+        const { meals } = this.props.state
+        // console.log('meals from allMeal2.js', meals)
+
         return (
             <>
-                <div id='all-meals-wrapper-wrapper'>
-                    <Sort data={{
-                        state: this.state,
-                        sortMeal: this.sortMeal.bind(this)
-                    }} />
-
-                    {/* {this.state.parentChange
-                        ? (<h1>sorted Array will b here</h1>)
-                        : (<h1>Parent Array</h1>)
-                    } */}
-                    {/* <TestArrayFilter
-                        data={{
-                            parentArray: this.state.parentArray,
-                            parentChange: this.state.parentChange,
-                            testChangeName: this.testChangeArray.bind(this)
-                        }}
-                    />
-
-                
-                    <Search
-                        data={{
-                            meals: this.state.meals,
+                <Sort
+                    {...this.props}
+                    data={
+                        {
+                            state: this.state,
                             sortMeal: this.sortMeal.bind(this)
                         }}
-                    /> */}
+                />
 
-                    {sort ? (<p>'sort is click'</p>) : ''}
-                    <div id='all-meals-wrapper' >
-                        {meals.length !== 0
-                            // ? (meals.map(({ idMeal, strMeal, strCategory, strMealThumb }) => (
-                            ? (meals.map((meal) => (
-                                <li key={meal.idMeal} className={'meal-module'}
-                                >
-                                    <Link className={'meal-module-link'} to={{ pathname: '/recipe', state: { id: meal.idMeal } }}>
-                                        <Meal
-                                            data={{
-                                                state: this.state,
-                                                meal: meal,
-                                                addToFavorites: this.addToFavorites
-                                            }}
+                {this.state.sortedCategoryList.length === 0
+                    ? (
+                        <div id='all-meals-wrapper-wrapper'>
+                            <div id='all-meals-wrapper' >
+                                {meals.length !== 0
+                                    ? (meals.map((item) => (
+                                        <li key={item.idMeal} className={'meal-module'}>
+                                            <MealModule meals={item} />
+                                        </li>)))
+                                    : ''
+                                }
+                            </div>
+                        </div>
+                    )
+                    : (
+                        
+                        <div id='all-meals-wrapper-wrapper'>
+                        <p className='search-result'> {sortMeals.length} meals found</p>
+                            <div id='all-meals-wrapper' >
+                                {sortMeals.length !== 0
+                                    ? (sortMeals.map((item) => (
+                                        
+                                            
+                                            <li key={item.idMeal} className={'meal-module'}>
+                                                <MealModule meals={item} />
+                                            </li>
+                                        )))
+                                    : ''
+                                }
+                            </div>
+                        </div>
+                    )
+                }
 
-                                        />
-                                        {/* <Meal
-                                            id={idMeal}
-                                            name={strMeal}
-                                            category={strCategory}
-                                            img={strMealThumb}
-                                        /> */}
-                                    </Link>
-                                    <p onClick={() => this.addToFavorites(meal)} class='add-to-favorite'>Favorite</p>
-                                </li>)))
-                            : ''}
 
-                    </div>
-                </div>
+
             </>
         )
     }

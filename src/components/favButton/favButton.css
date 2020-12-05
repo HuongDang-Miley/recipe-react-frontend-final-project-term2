@@ -1,8 +1,28 @@
 .fav-link {
-    text-emphasis: right;
     color: grey;
-    font-size: 14px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+}
+
+.text-link {
+    font-size: 16px;
     font-weight: 600;
-    margin-bottom: 16px;
-    text-align: right;
+    margin-right: 8px;
+}
+
+.heart-outlined {
+    fill: grey;
+}
+.heart-outlined:hover {
+    fill: #FF695B;
+}
+
+.heart-filled {
+    fill: #FF695B;
+}
+.heart-filled:hover {
+    fill: #F9464B;
 }

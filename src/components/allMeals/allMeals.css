@@ -7,26 +7,27 @@
     /* background-color: pink; */
     width: 70%;
     display: grid;
+    
     grid-template-areas: "1fr 1fr 1fr 1fr" "1fr 1fr 1fr 1fr" "1fr 1fr 1fr 1fr";
 }
 
 #all-meals-wrapper-wrapper {
-    background-color: honeydew;
-    margin: 64px auto;
+    /* background-color: honeydew; */
+    margin: 0px auto;
 }
 
 #meal-module-wrapper {
     /* background-color: plum; */
     width: 220px;
     margin-top: 16px;
-    height: 350px;
+    height: 320px;
 }
 
 .name-and-img-wrapper {
     height: 292px;
     padding: 0;
     margin: 0;
-    background-color: purple;
+    /* background-color: purple; */
 }
 
 .name-and-img-wrapper:hover {
@@ -95,7 +96,14 @@ a {
 }
 
 .message {
-    margin: 32px auto;
+    margin: 100px auto;
+    color: rgb(39, 39, 41);
+    text-align: center;
+}
+
+.search-result {
+    margin-top: 30px;
+    margin-bottom: 0px;
     color: rgb(39, 39, 41);
     text-align: center;
 }

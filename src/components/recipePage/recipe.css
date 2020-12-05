@@ -5,11 +5,11 @@
   #recipe-div {
     display: grid;
     width: 70%;
-    /* height: 2000px; */
     margin: 64px auto;
     grid-template-areas: "hdr" "ing" "ins";
     font-size: 1em;
     line-height: 24px;
+    overflow: auto;
     /* background-color: aquamarine; */
   }
   
