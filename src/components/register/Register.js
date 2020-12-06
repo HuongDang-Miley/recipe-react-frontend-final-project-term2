@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import validator from 'validator';
+import axios from 'axios'
 import './register.css'
 
 export default class Login extends Component {
@@ -54,19 +55,48 @@ export default class Login extends Component {
     }
 
 
-    handleOnSubmit = (event) => {
-        console.log(this.props)
+    handleOnSubmit = async (event) => {
         event.preventDefault()
+
         const { isPwError, isEmailError } = this.state
+
         if (isPwError === false && isEmailError === false) {
-            this.setState({
-                userToken: 'thisIsAToken'
-            }, () => {
-                this.props.authorize(this.state.userToken)
-                this.props.history.push('/main/all')
-            })
+            console.log(this.state)
+            try {
+                let newUser = await axios.post('http://localhost:3001/users/create-user', {
+                    email: this.state.email,
+                    password: this.state.password
+                })
+                console.log(newUser)
+
+                this.setState({
+                    userToken: 'thisIsAToken'
+                }, () => {
+                    this.props.authorize(this.state.userToken)
+                    this.props.history.push('/main/all')
+                })
+            }
+            catch (e) {
+                console.log(e)
+            }
         }
     }
+
+
+
+    // handleOnSubmit = (event) => {
+    //     console.log(this.props)
+    //     event.preventDefault()
+    //     const { isPwError, isEmailError } = this.state
+    //     if (isPwError === false && isEmailError === false) {
+    //         this.setState({
+    //             userToken: 'thisIsAToken'
+    //         }, () => {
+    //             this.props.authorize(this.state.userToken)
+    //             this.props.history.push('/main/all')
+    //         })
+    //     }
+    // }
 
 
 
