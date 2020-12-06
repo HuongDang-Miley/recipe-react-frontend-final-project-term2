@@ -25,6 +25,7 @@ html, body {
     color: #8D8D94;
     font-size: 14px;
     font-weight: 600;
+    margin: 24px 0px -8px 0px;
     
 }
 
@@ -37,8 +38,6 @@ html, body {
 
 .input-field {
     width: 380px;
-    margin-top: 8px;
-    margin-bottom: 16px;
     height: 48px;
     background-color: #F0F0F5;
     border: 1px solid #E6E6EB;
@@ -53,7 +52,7 @@ html, body {
     margin-top: 24px;
     border: none;
     border-radius: 4px;
-    margin-bottom: 24px;
+    margin: 48px 0px 48px 0px;
     font-size: 14px;
     font-weight: 600
 }
@@ -63,9 +62,19 @@ html, body {
     text-align: center;
     color: #8D8D94;
     font-size: 14px;
+    line-height: 14px;
+    margin: 0;
     font-weight: 600
 }
 
 .register-login-link-span {
     color: #6B75FF;
+}
+
+.error-message {
+    text-align: left;
+    color: #FF695B;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 600
 }

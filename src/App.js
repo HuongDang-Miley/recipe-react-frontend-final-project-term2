@@ -10,7 +10,8 @@ import './App.css'
 
 export default class App extends Component {
   state = {
-    isAuth: true,
+    isAuth: false,
+    userToken: '',
     meals: [],
   }
 
@@ -55,7 +56,17 @@ export default class App extends Component {
     this.setState({
       meals: combinedMeals
     })
+  }
 
+  authorize = (userToken) => {
+    
+    console.log('userToken', userToken)
+    let newToken = userToken.concat('anotherText')
+    console.log('userToken', newToken)
+    this.setState({
+      isAuth: true,
+      userToken: newToken
+    })
   }
 
   render() {
@@ -65,7 +76,8 @@ export default class App extends Component {
         {this.state.meals.length === 0 ? '' : (
           <Router >
             <Switch>
-              <Route path='/register' component={Register} />
+              {/* <Route path='/register' component={Register} /> */}
+              <Route path='/register' component={(props) => <Register {...props} authorize={this.authorize}/>} />
               <PrivateRoute path='/main' state={this.state} component={Main}/>
             </Switch>
           </Router>
