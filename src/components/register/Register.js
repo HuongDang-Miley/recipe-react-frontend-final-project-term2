@@ -50,7 +50,7 @@ export default class Login extends Component {
         this.setState({
             [event.target.name]: event.target.value
         }, () => {
-            console.log(this.state)
+            // console.log(this.state)
         })
     }
 
@@ -61,18 +61,26 @@ export default class Login extends Component {
         const { isPwError, isEmailError } = this.state
 
         if (isPwError === false && isEmailError === false) {
-            console.log(this.state)
+            // console.log(this.state)
             try {
-                let newUser = await axios.post('http://localhost:3001/users/create-user', {
+                let newUser = await axios.post('http://localhost:3001/api/users/create-user', {
                     email: this.state.email,
                     password: this.state.password
                 })
-                console.log(newUser)
-
+                
+                // console.log('newUser all object', newUser)
+                let userEmail = newUser.data.email
+                let twtToken = newUser.data.jwtToken
+                // console.log('newUser', newUser.config)
+                // console.log('newUser email', JSON.parse(newUser.config.data).email)
+                // console.log('jwtToken', JSON.parse(newUser.config.data).jwtToken)
+                // console.log('jwtToken', newUser.data.jwtToken)
+                // console.log('jwtToken', twtToken)
+                localStorage.setItem('jwtToken', twtToken)
                 this.setState({
                     userToken: 'thisIsAToken'
                 }, () => {
-                    this.props.authorize(this.state.userToken)
+                    this.props.authorize(twtToken, userEmail )
                     this.props.history.push('/main/all')
                 })
             }
@@ -104,7 +112,7 @@ export default class Login extends Component {
 
     render() {
         const { email, password, isEmailError, emailErrorMessage, isPwError, pwErrorMessage } = this.state
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <div>
                 <img id='hero-img' src='/RegisterImgNoText.jpg' />

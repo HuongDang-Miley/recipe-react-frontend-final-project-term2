@@ -6,8 +6,12 @@ import './nav.css'
 
 export default class Nav extends Component {
 
-
+    logOut = () => {
+        // localStorage.removeItem('jwtToken')
+        
+    }
     render() {
+        console.log('logOut in Nav', this.props)
         return (
             <div id='shared-nav' className='white-nav'>
                 <span className='first-link'>
@@ -16,9 +20,15 @@ export default class Nav extends Component {
                 <span>
                     <Link className="nav-link" to='/main/favorites'>Favorites</Link>
                 </span>
-                <span className="sort-button">
-                    <Link className="back-link" to='/main/recipe'>Sort Recipes</Link>
+                <div className='email-and-logout-wrapper'>
+                <span className='email'>
+                   {this.props.state.email}
                 </span>
+                <span onClick={()=>this.props.logOut()}className="sort-button">
+                    Logout
+                    {/* <Link className="back-link" to='/register'>Logout</Link> */}
+                </span>
+                </div>
 
             </div>
         )

@@ -14,3 +14,7 @@ let meat = ['beef', 'pork']
 
 parent.push(meat)
 parent
+
+let data= '{"email":"11@119email.com","password":"1aA!@#aw"}'
+let obj = JSON.parse(data)
+obj 

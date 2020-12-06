@@ -42,15 +42,41 @@ a {
 }
 
 
+
 .sort-button {
-    width: 170px;
+    font-size: 32px;
+    line-height: 10px;
+    padding: 15px; 
+    color: white;
+    border-radius: 4px; 
+    font-weight: 600;
+    position: absolute;
+    background-color: teal;
+    width: 100px;
+    height: 100px;
+    right: 200px;
+    top: 8px; 
+    z-index: 100;
+
+}
+
+
+
+
+/* .sort-button {
+    position: absolute;
+    right: 350px;
     font-size: 14px;
     line-height: 10px;
-    padding: 15px;
-    background-color: #6B75FF;
-    border-radius: 4px;
-    color: white;
-    font-weight: 600;
-    position: relative;
-    left: 660px;
-}
+    top: 24px;
+    color: #272729;
+    
+} */
+
+/* .email {
+    position: absolute;
+    right: 350px;
+    font-size: 14px;
+    line-height: 10px;
+    top: 24px;
+} */
