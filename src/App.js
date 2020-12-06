@@ -1,16 +1,11 @@
 import './App.css';
 import React, { Component } from 'react'
-import axios from 'axios'
-// import Recipe from './components/recipePage/Recipe'
-// import Nav from './components/nav/Nav'
-// import Fav from './components/fav/Fav.js'
-import Register from './components/register/Register.js'
-import TestParent from './components/test/TestParent.js'
-import TestChild from './components/test/TestChild.js'
-import Main from './components/Main'
-import './App.css'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import axios from 'axios'
+import Register from './components/register/Register.js'
+import Main from './components/Main'
 import PrivateRoute from './components/PrivateRoute';
+import './App.css'
 
 
 export default class App extends Component {
@@ -64,20 +59,14 @@ export default class App extends Component {
   }
 
   render() {
-    // 
+    
     return (
       <>
         {this.state.meals.length === 0 ? '' : (
           <Router >
             <Switch>
               <Route path='/register' component={Register} />
-              <Route path='/testParent' render={()=><TestParent/>} />
-              {/* <Route path='/testParent' component={TestParent} /> */}
-              {/* <Route path='/testChild' component={TestChild} /> */}
               <PrivateRoute path='/main' state={this.state} component={Main}/>
-              {/* <Route path='/all' component={(props) => <AllMeals {...props} state={this.state} />} />
-              <Route path='/favorites' component={(props) => <Fav {...props} state={this.state} />} />
-              <Route path='/recipe' component={Recipe} /> */}
             </Switch>
           </Router>
         )}

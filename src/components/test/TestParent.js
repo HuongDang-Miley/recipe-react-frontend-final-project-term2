@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
-import TestChild from './TestChild'
 import TestParent2 from './TestParent2'
 
 export const TestParent = () => {

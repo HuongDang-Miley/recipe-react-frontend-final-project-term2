@@ -4,14 +4,13 @@ import Recipe from './recipePage/Recipe'
 import Nav from './nav/Nav'
 import Fav from './fav/Fav.js'
 import AllMeals from './allMeals/AllMeals'
-import TestChild from './test/TestChild'
-import TestChild2 from './test/TestChild2'
 
 export const Main = (props) => {
     console.log('props  in main:', props.state)
     const { state } = props
     console.log('state  in main:', state)
     return (
+
         <Router >
             <Route component={Nav} />
             <Switch>

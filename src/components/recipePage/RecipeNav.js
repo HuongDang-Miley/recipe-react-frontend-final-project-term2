@@ -7,7 +7,7 @@ export default class RecipeNav extends Component {
         return (
             <div id='shared-nav' className='black-nav'>
                 <span className='first-link'>
-                    <Link className='back-link' to='/all'>← Back</Link>
+                    <Link className='back-link' to='/main/all'>← Back</Link>
                 </span>
             </div>
         )
