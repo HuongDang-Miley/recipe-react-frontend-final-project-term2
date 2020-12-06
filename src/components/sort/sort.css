@@ -61,3 +61,13 @@ body li {
 }
 
 
+.isClicked {
+    background-color: blue;
+    color: white;
+}
+
+.isNotClicked {
+    background-color: wheat;
+    color: black
+}
+

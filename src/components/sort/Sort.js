@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './sort.css'
+import { FaThList } from 'react-icons/fa'
 export default class Sort extends Component {
     state = {
         categories: [],
@@ -16,18 +17,6 @@ export default class Sort extends Component {
             categories: newArr
         })
     }
-
-    // SortCategory = (category) => {
-    //     let { sortedMeals } = this.state
-    //     let indexOfCategory = sortedMeals.indexOf(category)
-    //     if (indexOfCategory.length === -1) {
-
-    //         sortedMeals.push(category)
-    //     } else {
-    //         sortedMeals.splice(indexOfCategory, 1)
-    //     }
-    //     return this.sortedMeals
-    // }
 
     render() {
         const [Dessert, Beef, Chicken, Lamb, Miscellaneous, Pasta, Pork, Seafood, Side, Starter, Vegetarian, Vegan, Breakfast, Goat] = this.state.categories
