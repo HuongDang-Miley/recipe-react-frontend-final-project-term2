@@ -11,6 +11,7 @@
     grid-template-areas: "1fr 1fr 1fr 1fr" "1fr 1fr 1fr 1fr" "1fr 1fr 1fr 1fr";
 }
 
+
 #all-meals-wrapper-wrapper {
     /* background-color: honeydew; */
     margin: 0px auto;
@@ -21,6 +22,10 @@
     width: 220px;
     margin-top: 16px;
     height: 320px;
+}
+
+#fav-meals-wrapper-wrapper {
+    margin-top: 64px;
 }
 
 .name-and-img-wrapper {

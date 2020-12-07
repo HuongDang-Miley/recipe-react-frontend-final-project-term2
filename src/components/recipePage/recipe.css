@@ -4,7 +4,7 @@
   
   #recipe-div {
     display: grid;
-    width: 70%;
+    width: 75%;
     margin: 64px auto;
     grid-template-areas: "hdr" "ing" "ins";
     font-size: 1em;
@@ -45,14 +45,19 @@
   
   #ingredients {
     /* background-color: aqua; */
+    margin: auto;
+    width: 99%;
     display: grid;
     grid-area: ing;
   }
   
   #instruction {
     /* background-color: gray; */
+    margin: auto;
+    width: 99%;
     display: grid;
     grid-area: ins;
+    overflow: auto;
   }
   
   a {
@@ -111,11 +116,18 @@ justify-self: start;
     border: black;
     background-color: white;
     box-shadow: 0px 0px 2px rgba(141, 141, 148, 0.3), 0px 2px 8px -2px rgba(141, 141, 148, 0.28);
+    overflow: auto;
   }
   
   .instruction-paragraph {
     width: 70%;
     margin: 24px auto;
     /* background-color: indianred; */
+    overflow: auto;
   }
 
+
+  .recipe-hero-img {
+    width: 488px;
+    height: 488px;
+  }

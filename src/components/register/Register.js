@@ -2,7 +2,9 @@
 import React, { Component } from 'react'
 import validator from 'validator';
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 import './register.css'
+
 
 export default class Login extends Component {
     state = {
@@ -67,25 +69,25 @@ export default class Login extends Component {
                     email: this.state.email,
                     password: this.state.password
                 })
-                
-                // console.log('newUser all object', newUser)
+
+                console.log('newUser axios', newUser)
                 let userEmail = newUser.data.email
                 let twtToken = newUser.data.jwtToken
-                // console.log('newUser', newUser.config)
-                // console.log('newUser email', JSON.parse(newUser.config.data).email)
-                // console.log('jwtToken', JSON.parse(newUser.config.data).jwtToken)
-                // console.log('jwtToken', newUser.data.jwtToken)
-                // console.log('jwtToken', twtToken)
+
                 localStorage.setItem('jwtToken', twtToken)
                 this.setState({
                     userToken: 'thisIsAToken'
                 }, () => {
-                    this.props.authorize(twtToken, userEmail )
+                    this.props.authorize(twtToken, userEmail)
                     this.props.history.push('/main/all')
                 })
             }
             catch (e) {
-                console.log(e)
+                console.log('e response', e.response)
+                this.setState({
+                    isEmailError: true,
+                    emailErrorMessage: e
+                })
             }
         }
     }
@@ -117,8 +119,8 @@ export default class Login extends Component {
             <div>
                 <img id='hero-img' src='/RegisterImgNoText.jpg' />
                 <div className='register-login-wrapper'>
-                    <h1 className='register-header'>Welcome To The World "Largest"<br /> Recipes Source </h1>
-                    {/* <h1 className='register-header'>Discover The World's Top Recipes!</h1> */}
+                    {/* <h1 className='register-header'>Welcome To The World "Largest"<br /> Recipes Source </h1> */}
+                    <h1 className='register-header'>Discover The World's Top Recipes!</h1>
                     <form onSubmit={this.handleOnSubmit}>
                         <p className='label-name'>Email</p><br />
                         <input
@@ -146,8 +148,8 @@ export default class Login extends Component {
                             className="register-login-button"
                         >Register</button>
                     </form>
-
-                    <p className='register-login-link'>Have an account? <span className='register-login-link-span'>Login Here   </span></p>
+                    <Link to='/login' className='register-login-link'><p className='register-login-link'>Don't have an account? <span className='register-login-link-span'>Login Here   </span></p></Link>
+                    {/* <p className='register-login-link'>Have an account? <span className='register-login-link-span'>Login Here   </span></p> */}
 
                 </div>
             </div>

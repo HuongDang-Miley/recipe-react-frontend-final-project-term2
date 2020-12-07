@@ -5,8 +5,8 @@ import Main from './Main'
 // export const PrivateRoute = (props) => {
 export const PrivateRoute = ({ component: Main, ...rest }) => {
     // console.log('props', props)
-    console.log('rest', rest)
-    console.log('AllMeals', Main)
+    // console.log('rest in PrivateRoute', rest)
+    // console.log('AllMeals', Main)
     return (
         <>
         {/* from PrivateRoute */}

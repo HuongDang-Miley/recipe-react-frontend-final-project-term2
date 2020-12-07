@@ -9,7 +9,7 @@ export default class MealThumb extends Component {
     }
 
     render() {
-        const {strCategory, strMeal, strMealThumb } = this.props.meals
+        const {strCategory, strMeal, strMealThumb } = this.props.meal
         return (
             <>
             <div id='meal-module-wrapper'>

@@ -2,11 +2,9 @@
     box-sizing: border-box;
 }
 
-
 a {
     text-decoration: none;
 }
-
 
 #shared-nav {
     height: 56px;
@@ -18,6 +16,7 @@ a {
 
 .white-nav {
     background-color: white;
+  
 }
 
 .black-nav {
@@ -25,58 +24,90 @@ a {
 }
 
 .nav-link {
-    margin: 24px;
+    margin: 16px;
     text-decoration: none;
-    line-height: 56px;
+    line-height: 54px;
+    font-weight: 600;
+    width: 150px;
+    height: 100px;
+    padding: 16px 24px 16px 24px;
     color: #272729;
-    font-weight: 600
 }
 
+.nav-link:hover {
+    background-color: #F0F0F5;
+}
+.nav-link-active:hover{
+    background-color: #F0F0F5;
+    padding: 16px 24px 16px 24px;
+}
+.nav-link-inactive:hover {
+    background-color: #F0F0F5;
+    padding: 20px 24px 20px 24px;
+}
+
+.nav-link-active {
+    text-decoration: none;
+    line-height: 56px;
+    font-weight: 600;
+    width: 150px;
+    height: 100px;
+    padding: 16px 24px 16px 24px;
+    color: #272729;
+    border-bottom: 4px solid #6B75FF;
+}
+.nav-link-inactive {
+    text-decoration: none;
+    line-height: 56px;
+    font-weight: 600;
+    width: 150px;
+    height: 100px;
+    padding: 16px 24px 16px 24px;
+    color: #272729;
+}
 
 .first-link {
     margin-left: 190px;
 }
 
 .back-link {
-    color: white
+    color: white;
+    text-decoration: none;
+    line-height: 56px;
+    font-weight: 600;
+    width: 150px;
+    height: 100px;
+    padding: 16px 24px 16px 24px;
 }
-
-
 
 .sort-button {
-    font-size: 32px;
+    font-size: 16px;
     line-height: 10px;
-    padding: 15px; 
-    color: white;
-    border-radius: 4px; 
+    padding: 15px;
+    color: #272729;
+    border-radius: 4px;
     font-weight: 600;
     position: absolute;
-    background-color: teal;
-    width: 100px;
-    height: 100px;
     right: 200px;
-    top: 8px; 
+    top: 8px;
     z-index: 100;
+    cursor: pointer;
+}
 
+.sort-button:hover{
+background-color: #6B75FF;
+color: white;
 }
 
 
 
-
-/* .sort-button {
+.email {
     position: absolute;
-    right: 350px;
-    font-size: 14px;
+    color:rgb(114, 114, 119);
+    right: 320px;
+    font-size: 16px;
     line-height: 10px;
     top: 24px;
-    color: #272729;
-    
-} */
+    cursor: default;
+}
 
-/* .email {
-    position: absolute;
-    right: 350px;
-    font-size: 14px;
-    line-height: 10px;
-    top: 24px;
-} */

@@ -67,6 +67,7 @@ export default class Recipe extends Component {
   render() {
 console.log('this is from line 66', this.props.location)
     const { id, area, category, ingredients, instructions, name, img, tags, video, source } = this.state
+    console.log('img', img)
     return (
       <>
         <RecipeNav />
@@ -75,13 +76,14 @@ console.log('this is from line 66', this.props.location)
             <div id='header'>
               <h1>{name}</h1>
               <div id='video-info-wrapper'>
-                <iframe
+                <img class='recipe-hero-img' src={this.state.img}/>
+                {/* <iframe
 
                   src="https://www.youtube.com/embed/WUpaOGghOdo"
                   frameborder="0"
                   poster={img}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
+                </iframe> */}
                 <ul id="info">
                   <button className="add-to-favorites-button">Add To Favorites</button>
                   <li className="info-list">Tags: {tags}</li>

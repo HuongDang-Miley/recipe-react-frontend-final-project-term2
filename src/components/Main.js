@@ -8,7 +8,7 @@ import AllMeals from './allMeals/AllMeals'
 export const Main = (props) => {
 // export const Main = (props) => {
     console.log('props  in main:', props)
-    const { state, logOut } = props
+    const { state, logOut, addToFavorites, loadAllFavMeals } = props
     // console.log('state  in main:', state)
     return (
 
@@ -16,8 +16,9 @@ export const Main = (props) => {
             {/* <Route component={Nav} {...props} /> */}
             <Route component={(props) => <Nav {...props} state={state} logOut={logOut}/>} />
             <Switch>
-                <Route exact path='/main/all' component={(props) => <AllMeals {...props} state={state} />} />
-                <Route exact path='/main/favorites' component={(props) => <Fav {...props} state={state} />} />
+                <Route exact path='/main/all' component={(props) => <AllMeals {...props} state={state} addToFavorites={addToFavorites}/>} />
+                {/* <Route exact path='/main/favorites' component={(props) => <Fav {...props} state={state} addToFavorites={addToFavorites}/>} /> */}
+                <Route exact path='/main/favorites' component={(props) => <Fav {...props} state={state} addToFavorites={addToFavorites} loadAllFavMeals={loadAllFavMeals}/>} />
                 <Route exact path='/main/recipe' component={Recipe} />
             </Switch>
         </Router>

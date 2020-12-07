@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../allMeals/allMeals.css'
 import MealModule from './MealModule'
 import Sort from '../sort/Sort'
+import TestChild from '../test/TestChild'
 export default class AllMeals extends Component {
     state = {
         sort: true,
@@ -44,10 +45,11 @@ export default class AllMeals extends Component {
 
 
     render() {
-        // console.log('this.props in allMeals',this.props)
+        // console.log('this.props in allMeals', this.props)
         // return('something')
         const { sortedMeals } = this.state
         const { meals } = this.props.state
+        // console.log('meals from this.props in allMeals', meals)
 
         return (
             <>
@@ -56,18 +58,31 @@ export default class AllMeals extends Component {
                     data={
                         {
                             state: this.state,
-                            sortMeal: this.sortMeal.bind(this)
+                            sortMeal: this.sortMeal.bind(this),
                         }}
                 />
 
                 {this.state.sortedCategoryList.length === 0
+                    // is sorted category list is empty? if yes print all meals
                     ? (
                         <div id='all-meals-wrapper-wrapper'>
+
                             <div id='all-meals-wrapper' >
                                 {meals.length !== 0
                                     ? (meals.map((item) => (
                                         <li key={item.idMeal} className={'meal-module'}>
-                                            <MealModule meals={item} />
+                                              <MealModule
+                                                {...this.props}
+                                                data={
+                                                    {
+                                                        meal: item,
+                                                        state: this.state,
+                                                    }}
+                                            />
+                                            {/* <MealModule
+                                            {...this.props}
+                                             meals={item} 
+                                             state={this.props.state} /> */}
                                         </li>)))
                                     : ''
                                 }
@@ -75,18 +90,30 @@ export default class AllMeals extends Component {
                         </div>
                     )
                     : (
-                        
+                        // when a category is selected, print meals that in selected category
                         <div id='all-meals-wrapper-wrapper'>
-                        <p className='search-result'> {sortedMeals.length} meals found</p>
+                            <p className='search-result'> {sortedMeals.length} meals found</p>
                             <div id='all-meals-wrapper' >
                                 {sortedMeals.length !== 0
                                     ? (sortedMeals.map((item) => (
-                                        
+
+                                        <li key={item.idMeal} className={'meal-module'}>
                                             
-                                            <li key={item.idMeal} className={'meal-module'}>
-                                                <MealModule meals={item} />
-                                            </li>
-                                        )))
+                                            <MealModule
+                                                {...this.props}
+                                                data={
+
+                                                    {
+                                                        meal: item,
+                                                        state: this.state,
+                                                    }}
+                                            />
+                                            {/* <MealModule 
+                                                meals={item} 
+                                                state={this.props.state} 
+                                                addToFavorites={this.props.addToFavorites()}/> */}
+                                        </li>
+                                    )))
                                     : ''
                                 }
                             </div>
